@@ -15,7 +15,7 @@ form.addEventListener('submit', function (e) {
 /* Creamos una funcion donde obtenemos la informacion desde la api */
 function getNews() {
   const articleRequest = new XMLHttpRequest();/* creamos el objeto XHR */
-  articleRequest.open('GET', `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=dca50e90c61d4c6683df2c0d9aa2dfe0`);/* abrimos la conexion con .open, en este caso tomamos 2 parámetros: GET y la url de la api para obtener la info */
+  articleRequest.open('GET', `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=dca50e90c61d4c6683df2c0d9aa2dfe0`);/* abrimos la conexion con .open, en este caso tomamos 2 parámetros: GET y la url de la api para obtener la info */
   articleRequest.onload = addNews;/* el método .onload maneja la respuesta exitosa a nuestra solicitud XHR */
   articleRequest.inerror = handleError;/* en caso de que no se muestra la solicitud, usamos .onerror y así sabremos que es lo que está fallando */
   articleRequest.send();/* enviamos la solicitud al servidor */
